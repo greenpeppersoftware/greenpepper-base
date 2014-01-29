@@ -154,6 +154,13 @@
 		</plugins>
 	</build>
 
+	<repositories>
+         <repository>
+           <id>atlassian-public-m1</id>
+           <url>https://maven.atlassian.com/content/groups/public</url>
+         </repository>
+	</repositories>
+	  
     <!--
        - Configure the reporting plugins
        -->
