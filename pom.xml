@@ -27,9 +27,6 @@
        - Extra project information
        -->
 	<url>https://www.greenpeppersoftware.com</url>
-	<issueManagement>
-		<url>http://www.greenpeppersoftware.com/jira/browse/GP</url>
-	</issueManagement>
 	<inceptionYear>2005</inceptionYear>
 	<organization>
 		<name>Pyxis Technologies</name>
@@ -137,9 +134,8 @@
 	</contributors>
 	
 	<scm>
-		<connection>scm:svn:https://www.pyxis-tech.ca/svn/GreenPepperRepos/greenpepper-base</connection>
-		<developerConnection>scm:svn:https://www.pyxis-tech.ca/svn/GreenPepperRepos/greenpepper-base/trunk</developerConnection>
-		<url>https://www.pyxis-tech.ca/fisheye/viewrep/GreenPepper/greenpepper-base</url>
+		<connection>https://github.com/greenpeppersoftware/greenpepper-base.git</connection>
+		<url>https://github.com/greenpeppersoftware/greenpepper-base</url>
 	</scm>
 
     <!--
@@ -180,122 +176,5 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
-    <!--
-       - Artifacts repository
-       -->
-	<repositories>
-		<repository>
-			<id>GPS</id>
-			<name>GreenPepperSoftware</name>
-			<url>http://www.greenpeppersoftware.com/nexus/content/groups/public</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		
-		<repository>
-			<id>GPS Snapshots</id>
-			<name>GreenPepperSoftware Snapshots</name>
-			<url>http://www.greenpeppersoftware.com/nexus/content/groups/public-snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>warn</checksumPolicy>
-			</snapshots>
-		</repository>
-         <repository>
-           <id>atlassian-public</id>
-           <url>https://m2proxy.atlassian.com/repository/public</url>
-           <snapshots>
-             <enabled>true</enabled>
-             <updatePolicy>daily</updatePolicy>
-             <checksumPolicy>warn</checksumPolicy>
-           </snapshots>
-           <releases>
-             <enabled>true</enabled>
-             <checksumPolicy>warn</checksumPolicy>
-           </releases>
-         </repository>
-		 
-         <repository>
-           <id>atlassian-public-m1</id>
-           <url>https://maven.atlassian.com/content/groups/public</url>
-         </repository>
-	</repositories>
-	
-	<pluginRepositories>
-		<pluginRepository>
-			<id>GPS</id>
-			<name>GreenPepperSoftware</name>
-			<url>http://www.greenpeppersoftware.com/nexus/content/groups/public</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
-    <!--
-       - Profiles for deployment
-       -->
-	<profiles>
-		
-		<profile>
-			<id>cetus</id>
-			<properties>
-				<deploy.host>cetus</deploy.host>
-				<deploy.path>opt/greenpepper-repos</deploy.path>
-				<deploy.url>scp://${deploy.host}/${deploy.path}</deploy.url>
-			</properties>
-		</profile>
-		
-		<profile>
-			<id>gps</id>
-			<properties>
-				<deploy.host>greenpeppersoftware.com</deploy.host>
-				<deploy.path>opt/greenpepper-repos</deploy.path>
-				<deploy.url>scp://${deploy.host}/${deploy.path}</deploy.url>
-			</properties>
-		</profile>
-		
-		<profile>
-			<id>local</id>
-			<properties>
-				<deploy.host>localhost</deploy.host>
-				<deploy.path>c/opt/greenpepper-repos</deploy.path>
-				<deploy.url>${deploy.host}/${deploy.path}</deploy.url>
-			</properties>
-		</profile>
-	
-	</profiles>
-
-    <!--
-       - Deployment of GrennPepper's artifacts and generated site
-       -->
-	<distributionManagement>
-		
-		<repository>
-			<id>${deploy.host}</id>
-			<name>GreenPepper Release Deployment</name>
-			<url>${deploy.url}/releases</url>
-		</repository>
-		
-		<snapshotRepository>
-			<id>${deploy.host}</id>
-			<name>GreenPepper Snapshots Deployment</name>
-			<url>${deploy.url}/snapshots</url>
-		</snapshotRepository>
-		
-		<site>
-			<id>default</id>
-			<name>Default Site</name>
-			<url>scp://orion//var/www/localhost/htdocs/greenpepper</url>
-		</site>
-	
-	</distributionManagement>
 
 </project>
